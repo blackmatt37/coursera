@@ -1,0 +1,9 @@
+# Miscellaneous Groovy/Gradle/IntelliJ build files
+*.class
+.gradle
+build
+out
+
+# This file stores the open files/tabs in IntelliJ per user
+workspace.xml
+

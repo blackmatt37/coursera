@@ -1,0 +1,25 @@
+# input vars
+boolean cin a[3..0] b[3..0] d[15..0]
+#
+# correct circuit
+adder 4 cout_correct s[3..0] a[3..0] b[3..0] cin
+#
+#
+# building of incorrect
+#
+eval q1 a0^b0
+eval q2 a1^b1
+eval q3 a2^b2
+eval q4 a3^b3
+#
+eval c1 (a0&b0 + b0&cin + a0&cin)
+eval c2 (a1&b1 + b1&c1 + a1&c1)
+eval c3 (a2&b2 + b2&c2 + a2&c2)
+eval c4 (a3&b3 + b3&c3 + a3&c3)
+#
+mux 4 Select q1 q2 q3 q4 d[15..0]
+eval cout Select&cin + !Select&c4
+#
+eval Z cout&cout_correct + !cout&!cout_correct
+quantify u All Z a[3..0] b[3..0] cin cout Select
+satisfy All

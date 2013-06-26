@@ -1,0 +1,21 @@
+# input vars
+boolean v w x y z
+#
+# circuit F
+eval w1 (!w&!x&y&!z)
+eval w2 (w&z)
+eval w3 (v&!w&y)
+eval F (w1+w2+w3)
+#
+# circuit G
+eval w4 (!w+!y+z)
+eval w5 (!w+y+z)
+eval w6 (v+w+y)
+eval w7 (w+x+y)
+eval w8 (!v+w+x+!y+!z)
+eval w9 (v+w+!y+!z)
+eval G (w4&w5&w6&w7&w8&w9)
+verify F G
+eval diff F^G
+satisfy diff
+quit

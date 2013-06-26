@@ -1,0 +1,18 @@
+boolean a b c d
+#
+eval Y (!a + b&c)
+#
+eval F (a&b&c)+Y
+eval Z1 a&!b + F
+eval Z2 a&b&!d&F
+#
+#eval Z1_f 1
+eval Z1_fbar (!a&b)
+eval Z2_f a&!b&d
+#eval Z2_fbar 0
+#
+eval diff1 Z1_fbar
+eval diff2 !(Z2_f)
+eval thing diff1&diff2
+quantify u end thing d
+satisfy end
