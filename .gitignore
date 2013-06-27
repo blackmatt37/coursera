@@ -10,7 +10,7 @@
 
 # OSX / *nix default autosave extension
 *.m~
-
+*.mat
 
 
 ###Python###
